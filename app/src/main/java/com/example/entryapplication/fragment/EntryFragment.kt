@@ -1,0 +1,52 @@
+package com.example.entrydisplay.fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.entryapplication.R
+import com.example.entryapplication.fragment.RelationFragment
+import com.example.entryapplication.model.Customer
+import kotlinx.android.synthetic.main.entry_fragment_layout.*
+
+class EntryFragment : Fragment() {
+
+    lateinit var enterCustomerListener: EnterCustomerListener
+    private val relationFragment = RelationFragment()
+
+    interface EnterCustomerListener {
+        fun addToCustomers(customer: Customer)
+        fun obtainRelation(): String
+    }
+
+    fun setEnterCusomterListener(listener: EnterCustomerListener) {
+        enterCustomerListener = listener
+    }
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.entry_fragment_layout, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val customer =
+            Customer(
+                enter_name_edit_text.text.toString(),
+                enter_relation_text_view.text.toString()
+            )
+
+        entry_enter_button.setOnClickListener {
+            enterCustomerListener.addToCustomers(customer)
+        }
+
+        enter_relation_text_view.setOnClickListener{
+            enter_relation_text_view.text = enterCustomerListener.obtainRelation()
+        }
+    }
+}

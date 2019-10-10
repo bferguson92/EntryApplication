@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/enter_name_edit_text"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:textSize="16sp"
+        android:hint="@string/enter_name"
+        android:importantForAutofill="no"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/enter_relation_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:textSize="16sp"
+        android:gravity="start|center"
+        android:text="@string/enter_relation"
+        app:layout_constraintTop_toBottomOf="@+id/enter_name_edit_text" />
+
+    <Button
+        android:id="@+id/entry_enter_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_customer"
+        app:layout_constraintTop_toBottomOf="@+id/enter_relation_text_view"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

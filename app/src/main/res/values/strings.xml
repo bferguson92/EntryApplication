@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EntryApplication</string>
+    <string name="enter_name">ENTER NAME</string>
+    <string name="enter_relation">ENTER RELATION</string>
+    <string name="clear">CLEAR</string>
+    <string name="enter_customer">ENTER CUSTOMER</string>
+    <string name="freind">FREIND</string>
+    <string name="friend">FRIEND</string>
+    <string name="family">FAMILY</string>
+    <string name="coworker">COWORKER</string>
+    <string name="none">NONE</string>
+    <string name="send">SEND</string>
+</resources>
