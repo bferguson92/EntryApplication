@@ -5,9 +5,9 @@
     <string name="clear">CLEAR</string>
     <string name="enter_customer">ENTER CUSTOMER</string>
     <string name="freind">FREIND</string>
-    <string name="friend">FRIEND</string>
-    <string name="family">FAMILY</string>
-    <string name="coworker">COWORKER</string>
+    <string name="shaper">SHAPER</string>
+    <string name="criminal">CRIMINAL</string>
+    <string name="anarch">Anarch</string>
     <string name="none">NONE</string>
     <string name="send">SEND</string>
 </resources>

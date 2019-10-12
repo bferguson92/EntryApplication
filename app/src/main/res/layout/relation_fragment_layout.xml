@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/friend"
+        android:textColor="#00FF00"
+        android:text="@string/shaper"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -18,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/family"
+        android:textColor="#0000FF"
+        android:text="@string/criminal"
         app:layout_constraintTop_toBottomOf="@+id/friend_button"/>
 
     <Button
@@ -26,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/coworker"
+        android:textColor="#FF0000"
+        android:text="@string/anarch"
         app:layout_constraintTop_toBottomOf="@+id/family_button"/>
 
 
