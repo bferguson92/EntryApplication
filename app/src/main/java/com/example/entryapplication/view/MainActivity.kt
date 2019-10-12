@@ -12,6 +12,7 @@ import com.example.entrydisplay.database.CustomerEntity
 import com.example.entrydisplay.fragments.EntryFragment
 import kotlinx.android.synthetic.main.activity_main.view.*
 
+//Testing Android Terminal
 class MainActivity : AppCompatActivity(), EntryFragment.EnterCustomerListener,
     RelationFragment.RelationFragmentListener {
 
@@ -33,7 +34,6 @@ class MainActivity : AppCompatActivity(), EntryFragment.EnterCustomerListener,
             .allowMainThreadQueries()
             .build()
 
-        myDAO.customerDAO().insertNewCustomer(CustomerEntity("Brian", "coworker"))
 
         entryFragment.setEnterCusomterListener(this)
         supportFragmentManager.beginTransaction().replace(R.id.entry_frame_layout, entryFragment)
@@ -42,22 +42,20 @@ class MainActivity : AppCompatActivity(), EntryFragment.EnterCustomerListener,
         supportFragmentManager.beginTransaction()
             .replace(R.id.display_frame_layout, displayFragment).commit()
 
+
     }
 
     override fun addToCustomers(customer: Customer) {
         val input = CustomerEntity(customer.name, customer.relation)
         myDAO.customerDAO().insertNewCustomer(input)
+        displayFragment.updateView(customer)
     }
 
-    override fun obtainRelation(): String {
+    override fun setRelation() {
         relationFragment.setRelationFragmentListener(this)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.relation_frame_layout, relationFragment).commit()
-        relationString = ""
-        return relationString
+        supportFragmentManager.beginTransaction().replace(R.id.relation_frame_layout, relationFragment).commit()
     }
-
     override fun sendRelation(relation: String) {
-        relationString = relation
+        entryFragment.obtainRelation(relation)
     }
 }

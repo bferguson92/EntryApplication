@@ -33,5 +33,14 @@ class RelationFragment : Fragment() {
         friend_button.setOnClickListener{
             relationFragmentListener.sendRelation(friend_button.text.toString())
         }
+
+        family_button.setOnClickListener{
+            relationFragmentListener.sendRelation(family_button.text.toString())
+        }
+
+        coworker_button.setOnClickListener{
+            relationFragmentListener.sendRelation(coworker_button.text.toString())
+
+        }
     }
 }

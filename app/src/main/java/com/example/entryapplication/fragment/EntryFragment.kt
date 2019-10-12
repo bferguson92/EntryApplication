@@ -1,6 +1,8 @@
 package com.example.entrydisplay.fragments
 
 import android.os.Bundle
+import android.provider.ContactsContract
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +15,10 @@ import kotlinx.android.synthetic.main.entry_fragment_layout.*
 class EntryFragment : Fragment() {
 
     lateinit var enterCustomerListener: EnterCustomerListener
-    private val relationFragment = RelationFragment()
 
     interface EnterCustomerListener {
         fun addToCustomers(customer: Customer)
-        fun obtainRelation(): String
+        fun setRelation()
     }
 
     fun setEnterCusomterListener(listener: EnterCustomerListener) {
@@ -35,18 +36,22 @@ class EntryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val customer =
-            Customer(
-                enter_name_edit_text.text.toString(),
-                enter_relation_text_view.text.toString()
-            )
-
         entry_enter_button.setOnClickListener {
-            enterCustomerListener.addToCustomers(customer)
+            enterCustomerListener.addToCustomers(
+                Customer(
+                    enter_name_edit_text.text.toString(),
+                    enter_relation_text_view.text.toString()
+                ))
         }
 
-        enter_relation_text_view.setOnClickListener{
-            enter_relation_text_view.text = enterCustomerListener.obtainRelation()
+        enter_relation_text_view.setOnClickListener {
+            enterCustomerListener.setRelation()
         }
     }
+
+    fun obtainRelation(relation: String){
+        enter_relation_text_view.text = relation
+    }
+
+
 }
