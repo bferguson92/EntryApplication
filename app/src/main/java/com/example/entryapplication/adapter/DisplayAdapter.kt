@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.entryapplication.R
 import com.example.entryapplication.model.Customer
+import com.example.entrydisplay.database.CustomerEntity
 
 class DisplayAdapter(private val customerList: List<Customer>) :
     RecyclerView.Adapter<DisplayAdapter.CustomViewHolder>() {
