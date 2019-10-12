@@ -17,9 +17,8 @@
             </intent-filter>
         </activity>
         <provider
-            android:authorities="com.example.entryapplication."
+            android:authorities="com.example.entryapplication.provider.CustomerProvider"
             android:name=".provider.CustomerProvider"
             android:exported="true"/>
     </application>
-
 </manifest>

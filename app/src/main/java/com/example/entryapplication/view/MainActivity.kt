@@ -10,6 +10,7 @@ import com.example.entryapplication.model.Customer
 import com.example.entrydisplay.database.CustomerDatabase
 import com.example.entrydisplay.database.CustomerEntity
 import com.example.entrydisplay.fragments.EntryFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 //Testing Android Terminal
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity(), EntryFragment.EnterCustomerListener,
     private val entryFragment = EntryFragment()
     private val relationFragment = RelationFragment()
     private val displayFragment = DisplayFragment()
-    private lateinit var relationString: String
     private lateinit var myDAO: CustomerDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity(), EntryFragment.EnterCustomerListener,
             .allowMainThreadQueries()
             .build()
 
+        clear_button.setOnClickListener{
+            myDAO.customerDAO().deleteAllCustomers()
+            displayFragment.clearView()
+        }
 
         entryFragment.setEnterCusomterListener(this)
         supportFragmentManager.beginTransaction().replace(R.id.entry_frame_layout, entryFragment)

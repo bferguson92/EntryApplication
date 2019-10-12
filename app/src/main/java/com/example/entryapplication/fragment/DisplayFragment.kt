@@ -70,5 +70,8 @@ class DisplayFragment : Fragment() {
         view?.display_recycler_view?.adapter?.notifyDataSetChanged()
     }
 
-
+    fun clearView(){
+        customerList.clear()
+        view?.display_recycler_view?.adapter?.notifyDataSetChanged()
+    }
 }
